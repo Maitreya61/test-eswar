@@ -5,6 +5,7 @@ const authRoutes = require('./routes/auth');
 const dataRoutes = require('./routes/data');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./db/database.db');
+const path = require('path');
 
 // Create users table if it doesn't exist
 db.serialize(() => {
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/data', dataRoutes);
 
-const swaggerDocument = YAML.load('./swagger/swagger.yaml');
+const swaggerDocument = YAML.load(path.join(__dirname, 'swagger', 'swagger.yaml'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', (req, res) => {

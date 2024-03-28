@@ -1,0 +1,22 @@
+//If you want to verify particular API uncomment each one of the http test below and send request
+
+
+# POST http://localhost:3000/auth/login
+# Content-Type: application/json
+
+# {
+#   "username": "user123",
+#   "password": "password123"
+# }
+
+# POST http://localhost:3000/auth/register
+# Content-Type: application/json
+
+# {
+#   "username": "user123",
+#   "email": "test@gmail.com",
+#   "password": "password123"
+# }
+
+# GET http://localhost:3000/data
+# Authorization: Bearer <JWT Token>
